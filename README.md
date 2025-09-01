@@ -52,6 +52,5 @@ Este proyecto utiliza el dataset **Estimation of Obesity Levels Based on Eating 
 ## Licencia
 MIT License. Cita el dataset original si usas este proyecto.
 
-Autor: [Tu Nombre/Usuario de LinkedIn]  
+Autor: [Adrián Galván]  
 Fecha: Septiembre 2025  
-Enlace al repositorio: [Inserta enlace de GitHub aquí]
