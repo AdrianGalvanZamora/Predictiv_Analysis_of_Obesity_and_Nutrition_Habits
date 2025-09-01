@@ -40,7 +40,7 @@ Este proyecto utiliza el dataset **Estimation of Obesity Levels Based on Eating 
 
 ## Cómo Ejecutar
 1. Descarga el dataset y coloca `ObesityDataSet_raw_and_data_sinthetic.csv` en la carpeta.
-2. Abre `Proyecto9_NutricionObesidad.ipynb` en Jupyter Notebook.
+2. Abre `Nutricion_Obesidad.ipynb` en Jupyter Notebook.
 3. Ejecuta las celdas en orden.
 4. Nota: El entrenamiento toma ~1-2 minutos.
 
@@ -49,8 +49,6 @@ Este proyecto utiliza el dataset **Estimation of Obesity Levels Based on Eating 
 - Incluir análisis de interacción entre variables categóricas.
 - Desarrollar una interfaz web para predicciones en tiempo real.
 
-## Licencia
-MIT License. Cita el dataset original si usas este proyecto.
 
-Autor: [Adrián Galván]  
+Autor: Adrián Galván  
 Fecha: Septiembre 2025  
