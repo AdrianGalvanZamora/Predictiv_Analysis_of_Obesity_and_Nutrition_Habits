@@ -1,54 +1,190 @@
-# Predicción de Niveles de Obesidad
+# 🥗 Predicción de Niveles de Obesidad  
+[English version below ⬇️]  
 
-## Descripción del Proyecto
-Este proyecto utiliza el dataset **Estimation of Obesity Levels Based on Eating Habits and Physical Condition** del UCI Machine Learning Repository para predecir niveles de obesidad (7 clases) basados en hábitos alimenticios, actividad física y características demográficas. Es relevante para biotech, salud pública y nutrición, con aplicaciones en programas de prevención y personalización dietética.
+**Sector:** Salud Pública, Biotecnología, Nutrición  
+**Herramientas:** Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, SciPy)  
 
-- **Dataset:** Obesity Levels (2,111 instancias, 17 features).
-- **Fuente:** [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition).
-- **Herramientas:** Python con Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn y SciPy.
-- **Objetivos:**
-  - Realizar análisis exploratorio de datos (EDA) para identificar patrones.
-  - Limpiar y preparar datos (sin valores faltantes, codificación categórica).
-  - Pruebas de hipótesis (e.g., asociación entre consumo de comida calórica y obesidad).
-  - Modelado de clasificación multi-clase con Random Forest.
-  - Evaluación con accuracy (~94%), F1-score y matriz de confusión.
-  - Visualizaciones: histogramas, boxplots, mapa de calor, importancia de variables.
+---
 
-## Requisitos
-- Python 3.8+.
-- Bibliotecas: Instala con `pip install pandas numpy matplotlib seaborn scikit-learn scipy`.
-- Dataset: Descarga de [aquí](https://archive.ics.uci.edu/static/public/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition.zip) y coloca `ObesityDataSet_raw_and_data_sinthetic.csv` en la carpeta del notebook.
+## 📋 Descripción General  
+Este proyecto utiliza el dataset *Estimation of Obesity Levels Based on Eating Habits and Physical Condition* del **UCI Machine Learning Repository** para **predecir los niveles de obesidad (7 clases)** basados en hábitos alimenticios, actividad física y características demográficas.  
 
-## Metodología
-1. **Carga y Limpieza:** Dataset cargado con 2,111 instancias, 0 valores faltantes.
-2. **EDA:**
-   - Distribución del target: 7 clases casi balanceadas (~13-16% cada una).
-   - Histogramas de variables numéricas (e.g., Weight sesgada hacia valores altos).
-   - Boxplots: Peso varía significativamente por nivel de obesidad.
-   - Correlaciones: Bajas (<0.5) entre variables numéricas.
-3. **Pruebas de Hipótesis:** Chi-cuadrado muestra asociación significativa (p-value: 1.48e-47) entre consumo de comida calórica (FAVC) y NObeyesdad.
-4. **Preparación:** Codificación de categóricas, split 80/20 con estratificación (X_train: 1,688; X_test: 423), escalado de variables numéricas.
-5. **Modelado:** Random Forest (100 árboles, profundidad 10). Accuracy: 94.33%.
-6. **Evaluación:** F1-scores altos (>0.87), con Weight como predictor principal (importancia: 0.365).
-7. **Visualizaciones:** Matriz de confusión, gráfico de importancia de features.
+Su relevancia se centra en el diseño de **estrategias preventivas y de salud personalizada**, aplicables en programas de nutrición, bienestar y medicina predictiva.  
 
-## Resultados Clave
-- **Accuracy:** 94.33%.
-- **Mejor rendimiento:** Clases como Obesity_Type_II y III (f1-score ~0.99).
-- **Insights:** Peso y frecuencia de consumo vegetal (FCVC) son predictores clave, útil para estrategias de nutrición.
-- **Limitaciones:** Correlaciones bajas entre variables numéricas limitan la interacción multivariada.
+---
 
-## Cómo Ejecutar
-1. Descarga el dataset y coloca `ObesityDataSet_raw_and_data_sinthetic.csv` en la carpeta.
-2. Abre `Nutricion_Obesidad.ipynb` en Jupyter Notebook.
-3. Ejecuta las celdas en orden.
-4. Nota: El entrenamiento toma ~1-2 minutos.
+## 📊 Dataset  
+- **Fuente:** [UCI Machine Learning Repository – Obesity Levels Dataset](https://archive.ics.uci.edu/ml/datasets/Estimation+of+Obesity+Levels+Based+on+Eating+Habits+and+Physical+Condition)  
+- **Tamaño:** 2,111 instancias, 17 características  
+- **Archivo:** `ObesityDataSet_raw_and_data_sinthetic.csv`  
 
-## Mejoras Futuras
-- Probar balanceo de clases o XGBoost para optimizar F1-scores.
-- Incluir análisis de interacción entre variables categóricas.
-- Desarrollar una interfaz web para predicciones en tiempo real.
+---
+
+## 🔍 Metodología  
+1. **Carga y Limpieza de Datos**  
+   - Dataset con 0 valores faltantes.  
+   - Codificación de variables categóricas.  
+
+2. **Análisis Exploratorio (EDA)**  
+   - Distribución balanceada de las 7 clases (~13–16% cada una).  
+   - Peso (*Weight*) sesgado hacia valores altos.  
+   - Boxplots muestran diferencias marcadas por nivel de obesidad.  
+   - Correlaciones numéricas bajas (< 0.5).  
+
+3. **Pruebas de Hipótesis**  
+   - *Chi-cuadrado* mostró una asociación significativa (p ≈ 1.48 × 10⁻⁴⁷) entre consumo de comida calórica (*FAVC*) y nivel de obesidad (*NObeyesdad*).  
+
+4. **Preparación y Modelado**  
+   - División 80/20 (train/test) con estratificación.  
+   - Escalado de variables numéricas.  
+   - Modelo: *Random Forest Classifier* (100 árboles, profundidad = 10).  
+
+5. **Evaluación del Modelo**  
+   - Accuracy: **94.33%**  
+   - F1-scores > **0.87** en la mayoría de las clases.  
+   - Variable más importante: **Weight (importancia = 0.365)**.  
+
+6. **Visualizaciones Clave**  
+   - Matriz de confusión.  
+   - Gráfico de importancia de características.  
+
+---
+
+## 🌎 Principales Hallazgos  
+- **El peso y la frecuencia de consumo de vegetales (FCVC)** son los predictores más relevantes.  
+- El modelo presenta una **alta capacidad de clasificación multicategoría (94%)**.  
+- Útil para diseñar programas de prevención y control de obesidad.  
+
+---
+
+## 🧠 Aplicaciones en el Mundo Real  
+- Evaluación de riesgo nutricional en poblaciones jóvenes.  
+- Asistente inteligente para nutricionistas y médicos.  
+- Base para aplicaciones de salud digital y seguimiento alimenticio.  
+
+---
+
+## ⚙️ Requisitos de Ejecución  
+- Python 3.8+  
+- Librerías: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `scipy`  
+- Archivo: `ObesityDataSet_raw_and_data_sinthetic.csv`  
+
+Instalación rápida:
+- pip install pandas numpy matplotlib seaborn scikit-learn scipy
 
 
-Autor: Adrián Galván  
-Fecha: Septiembre 2025  
+---
+
+## 🚀 Cómo Ejecutar  
+1. Descarga el dataset y colócalo en la carpeta del notebook.  
+2. Abre `Nutricion_Obesidad.ipynb` en Jupyter Notebook.  
+3. Ejecuta las celdas en orden (entrenamiento: ~1–2 min).  
+
+---
+
+## 🔧 Mejoras Futuras  
+- Probar **XGBoost** o **SMOTE** para mejorar recall.  
+- Analizar interacciones entre variables categóricas.  
+- Desarrollar interfaz web para predicciones en tiempo real.  
+
+---
+
+## 👤 Autor  
+**Adrián Galván**  
+**Fecha:** Septiembre 2025  
+
+---
+
+# 🥗 Predictive Analysis of Obesity and Nutrition Habits  
+
+**Sector:** Public Health, Biotechnology, Nutrition  
+**Tools:** Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, SciPy)  
+
+---
+
+## 📋 Overview  
+This project analyzes the *Estimation of Obesity Levels Based on Eating Habits and Physical Condition* dataset from the **UCI Machine Learning Repository** to **predict obesity levels (7 classes)** based on eating habits, physical activity, and demographic characteristics.  
+
+It provides insights for **preventive health and personalized nutrition programs**, supporting early detection and tailored interventions.  
+
+---
+
+## 📊 Dataset  
+- **Source:** [UCI Machine Learning Repository – Obesity Levels Dataset](https://archive.ics.uci.edu/ml/datasets/Estimation+of+Obesity+Levels+Based+on+Eating+Habits+and+Physical+Condition)  
+- **Size:** 2,111 instances, 17 features  
+- **File:** `ObesityDataSet_raw_and_data_sinthetic.csv`  
+
+---
+
+## 🔍 Methodology  
+1. **Data Cleaning**  
+   - No missing values.  
+   - Categorical encoding applied.  
+
+2. **Exploratory Data Analysis (EDA)**  
+   - 7 balanced classes (~13–16% each).  
+   - *Weight* distribution skewed toward higher values.  
+   - Boxplots show clear variation by obesity level.  
+   - Low correlations (< 0.5) among numeric features.  
+
+3. **Hypothesis Testing**  
+   - *Chi-square test* revealed a significant association (p ≈ 1.48 × 10⁻⁴⁷) between calorie-rich food consumption (*FAVC*) and obesity level (*NObeyesdad*).  
+
+4. **Modeling**  
+   - 80/20 stratified split (train/test).  
+   - Standardized numeric variables.  
+   - Model: *Random Forest Classifier* (100 trees, depth = 10).  
+
+5. **Model Evaluation**  
+   - Accuracy: **94.33%**  
+   - F1-scores > **0.87** for most classes.  
+   - Top predictor: **Weight (importance = 0.365)**.  
+
+6. **Visualizations**  
+   - Confusion matrix.  
+   - Feature importance chart.  
+
+---
+
+## 🌎 Key Findings  
+- **Weight** and **vegetable intake frequency (FCVC)** are the most influential predictors.  
+- The model achieved **94% classification accuracy** across 7 categories.  
+- Useful for developing targeted public health interventions.  
+
+---
+
+## 🧠 Real-World Applications  
+- Nutritional risk assessment tools for healthcare providers.  
+- Early detection support for obesity-related conditions.  
+- Foundation for digital health and fitness apps.  
+
+---
+
+## ⚙️ Execution Requirements  
+- Python 3.8+  
+- Libraries: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `scipy`  
+- File: `ObesityDataSet_raw_and_data_sinthetic.csv`  
+
+Quick install:
+- pip install pandas numpy matplotlib seaborn scikit-learn scipy
+
+
+---
+
+## 🚀 How to Run  
+1. Download the dataset and place it in the notebook directory.  
+2. Open `Nutricion_Obesidad.ipynb` in Jupyter Notebook.  
+3. Run all cells sequentially (training time: ~1–2 min).  
+
+---
+
+## 🔧 Future Improvements  
+- Implement **XGBoost** or **SMOTE** for better recall.  
+- Explore categorical feature interactions.  
+- Develop a **web app for real-time predictions**.  
+
+---
+
+## 👤 Author  
+**Adrián Galván**  
+**Date:** September 2025  
